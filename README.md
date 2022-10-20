@@ -1,7 +1,6 @@
 # README
 
 Just a dumb test project and a super simplistic proof of concept for SQL and code injection. 
-empty
 ```bash
 bundle install
 rails db:setup
