@@ -31,13 +31,17 @@
 
 .product-search {
   margin: auto;
-  width: 50%;
   margin-bottom: 0.5rem;
   display: flex;
 }
 
 .search-field {
   margin: 0.2rem 0.2rem;
+}
+
+.search-field select {
+  height: 100%;
+  width: 100%;
 }
 
 .attribute {

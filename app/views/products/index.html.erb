@@ -11,10 +11,16 @@
     <div class="search-field">
       <%= form.label :attribute, "Search product attribute:" %>
       <div class="product-search-bar">
-        <%= form.text_field :attribute, value: @attribute, placeholder: "display all if empty" %>
+        <%= form.select :attribute,  Product.column_names.dup.prepend(@attribute.to_s).uniq %>
       </div>
     </div>
-    <%= form.submit "Search" %>
+     <div class="search-field">
+      <%= form.label :unsafe_mode, "Super unsafe mode" %>
+      <div class="product-search-bar">
+        <%= form.check_box :unsafe_mode, checked: @unsafe_mode %>
+      </div>
+    </div>
+    <%= form.submit "Unsafe search" %>
   <% end %>
   <%= render partial: "products/index/product", collection: @products %>
 </div>
