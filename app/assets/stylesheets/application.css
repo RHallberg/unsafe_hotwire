@@ -33,4 +33,14 @@
   margin: auto;
   width: 50%;
   margin-bottom: 0.5rem;
+  display: flex;
+}
+
+.search-field {
+  margin: 0.2rem 0.2rem;
+}
+
+.attribute {
+  display: flex;
+  border-style: inset;
 }

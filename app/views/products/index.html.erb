@@ -1,11 +1,20 @@
 <div class="product-list">
   <h1> Products </h1>
   <%= form_with url: products_path, method: :get, class: "product-search" do |form| %>
-    <%= form.label :query, "Search products:" %>
-    <div class="product-search-bar">
-      <%= form.text_field :query, value: @query %>
-      <%= form.submit "Search" %>
+
+    <div class="search-field">
+      <%= form.label :query, "Search product names:" %>
+      <div class="product-search-bar">
+        <%= form.text_field :query, value: @query %>
+      </div>
     </div>
+    <div class="search-field">
+      <%= form.label :attribute, "Search product attribute:" %>
+      <div class="product-search-bar">
+        <%= form.text_field :attribute, value: @attribute, placeholder: "display all if empty" %>
+      </div>
+    </div>
+    <%= form.submit "Search" %>
   <% end %>
   <%= render partial: "products/index/product", collection: @products %>
 </div>

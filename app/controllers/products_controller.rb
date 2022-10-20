@@ -1,8 +1,7 @@
 class ProductsController < ApplicationController
   def index
     @query = params[:query]
-    scope = Product.all
-    scope = scope.where("name ILIKE '%#{@query}%'") if @query
-    @products = scope
+    @attribute = params[:attribute]
+    @products = Products::ProductSearch.new(@query, @attribute).search 
   end
 end
