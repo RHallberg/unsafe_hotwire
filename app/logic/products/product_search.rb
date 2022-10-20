@@ -21,14 +21,24 @@ module Products
     def attribute_search(scope)
       scope.map do |p| 
         sp = SearchableProduct.new(p)
-        {q_attr => sp.send(q_attr).to_s}
+        value = begin 
+                  sp.send(q_attr).to_s
+                rescue
+                  "invalid"
+                end
+        {q_attr => value}
       end
     end
 
     def unsafe_attribute_search(scope)
       scope.map do |p| 
         sp = SearchableProduct.new(p)
-        {q_attr => eval("sp.#{q_attr}").to_s}
+        value = begin
+                  eval("sp.#{q_attr}").to_s
+                rescue
+                  "invalid"
+                end
+        {q_attr => value}
       end
     end
   end
